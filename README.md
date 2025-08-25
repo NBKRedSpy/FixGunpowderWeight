@@ -1,11 +1,11 @@
 # Quasimorph Fix Gunpowder Weight
 
-Fixes an issue with the game where powder is 10x the weight of ammo.  For example, 9mm ammo weighs 0.01 each, while powder extracted from that round weighs 0.10.
+Fixes a bug where gun powder is 10x the weight of ammo.  For example, 9mm ammo weighs 0.01 each, while powder extracted from that round weighs 0.10.
 
-Disabled by Default - This optionally adjusts the disassembly outputs of all ammo so that a single round cannot disassembly into more items then it takes to create the item. This can be changed in the mod configuration.
+Additionally, can optionally adjust ammo so that disassembling a round doesn't produce more components than it takes to make.  This is disabled by default.  Ex:  9mm ammo takes one powder to create, but can disassemble into as much as two powder.  This can be enabled in the config file.
 
-## Disassembly Output Fix 
-If the "fix disassembly outputs" is enabled, expect to get about half of the components that the non modded game returns.  For instance, the game's 9mm ammo can actually produce up to two powder per round, but takes only one powder to create.  Since the disassembly is random, the unmodded game can produce more powder than there are rounds that are being disassembled.  Ex: 80 9mm rounds can easily turn into 100 or more powder.
+## Disassembly Output Fix
+If the "fix disassembly outputs" is enabled, expect to get about half of the components that the non modded game returns.  As an example, since 9mm ammo can normally create up to two powder (0-2 random), adjusting that recipe to one (0-1 random) will reduce the output. For example, a stack of 9mm x 80 will generally return about 30-40 powder when modded, while the game's default will usually return about 80-100+.
 
 ![thumbnail icon](media/thumbnail.png)
 
