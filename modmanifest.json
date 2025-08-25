@@ -1,0 +1,12 @@
+{
+  "UniqueModName": "NBKRedSpy_FixGunpowderWeight",
+  "Assemblies": [
+    "FixGunpowderWeight.dll"
+  ],
+  "Dependencies": [],
+  "SteamTags": [
+    "Gameplay Tweaks",
+    "0.9.1",
+    "0.9.5"
+  ]
+}
