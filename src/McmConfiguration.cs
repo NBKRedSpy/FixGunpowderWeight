@@ -9,12 +9,12 @@ using UnityEngine;
 
 namespace FixGunpowderWeight
 {
-    internal class McmTest
+    internal class McmConfiguration
     {
 
         public ModConfig Config { get; set; }
 
-        public McmTest(ModConfig config)
+        public McmConfiguration(ModConfig config)
         {
                 Config = config;
         }
@@ -45,7 +45,7 @@ namespace FixGunpowderWeight
             catch(Exception ex)
             {
                 Plugin.Logger.LogError("Error saving the configuration");
-                Plugin.Logger.LogException(ex);
+                Plugin.Logger.LogError(ex);
             }
 
             return false;

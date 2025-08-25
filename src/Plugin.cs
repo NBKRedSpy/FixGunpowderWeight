@@ -30,12 +30,11 @@ namespace FixGunpowderWeight
 
             try
             {
-                new McmTest(Plugin.Config).Test();
+                new McmConfiguration(Plugin.Config).Test();
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError("Error configuring MCM");
-                Plugin.Logger.LogException(ex);
+                Plugin.Logger.LogError(ex, "Error configuring MCM");
             }
 
             new FixWeight().Update();

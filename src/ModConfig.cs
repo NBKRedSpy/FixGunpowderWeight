@@ -58,7 +58,7 @@ namespace FixGunpowderWeight
                 catch (Exception ex)
                 {
                     Plugin.Logger.LogError("Error parsing configuration.  Ignoring config file and using defaults");
-                    Plugin.Logger.LogException(ex);
+                    Plugin.Logger.LogError(ex);
 
                     //Not overwriting in case the user just made a typo.
                     config = new ModConfig();
