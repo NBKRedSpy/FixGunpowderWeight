@@ -16,13 +16,9 @@ namespace FixGunpowderWeight
         {
             ModConfigMenuAPI.RegisterModConfig("test", new List<ConfigValue>()
             {
-                new ConfigValue("blah", "valuetest","headertest", "false", "this si a toolstip", "this is a label"),
-                new ConfigValue("blah2", false,"headertest 2", true, "also tooltip", "this is a label as well")
+                new ConfigValue("blahKey", false,"foo header", false, "this si a toolstip", "this is a label"),
+                new ConfigValue("blah2", "valuetest2","Filled in header", "Foovalue", "this is a toolstip 2", "this is a label 2"),
             }, OnSave);
-
-
-
-            //ModConfigMenuAPI.RegisterModConfig("test", new List<ConfigValue>(), (ModConfigMenu.ModConfigMenuAPI.ConfigStoredDelegate) OnSave);
 
         }
 
