@@ -2,7 +2,7 @@
 
 Fixes a bug where gun powder is 10x the weight of ammo.  For example, 9mm ammo weighs 0.01 each, while powder extracted from that round weighs 0.10.
 
-Additionally, can optionally adjust ammo so that disassembling a round doesn't produce more components than it takes to make.  This is disabled by default.  Ex:  9mm ammo takes one powder to create, but can disassemble into as much as two powder.  This can be enabled in the config file.
+Additionally, can optionally adjust ammo so that disassembling a round doesn't produce more components than it takes to make.  This is disabled by default.  Ex:  9mm ammo takes one powder to create, but can disassemble into as much as two powder.  This can be enabled with the config.
 
 [h2]Disassembly Output Fix[/h2]
 
@@ -14,6 +14,13 @@ If the "fix disassembly outputs" is enabled, expect to get about half of the com
 It is unknown how quickly the developers will address the "bug" in the game.  However it may be fairly soon; therefore it is unknown how long this mod will be needed.  This mod will be removed when the bugs are addressed.
 
 [h1]Configuration[/h1]
+
+[h2]MCM[/h2]
+
+This mod supports the MCM, which adds a Mods button to the main menu.  The settings can be found there.
+Alternatively, the config file can be directly edited, as indicated in the section below.
+
+[h2]Config File[/h2]
 
 The configuration file will be created on the first game run and can be found at [i]%AppData%\..\LocalLow\Magnum Scriptum Ltd\Quasimorph_ModConfigs\FixGunpowderWeight\config.json[/i].
 [table]
@@ -54,8 +61,17 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/FixGunpowderW
 
 [h1]Credits[/h1]
 
+Special thanks to Crynano for his excellent Mod Configuration Menu.
+
 Icons from:
 
 [url=https://www.flaticon.com/free-icons/law]Law icons created by LAFS - Flaticon[/url]
 
 [url=https://www.flaticon.com/free-icons/question-mark]Question mark icons created by Freepik - Flaticon[/url]
+
+[h1]Change Log[/h1]
+
+[h2]1.1.0[/h2]
+[list]
+[*]Supports Crynano's Mod Configuration Menu
+[/list]

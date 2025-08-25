@@ -25,6 +25,10 @@
 			<HintPath>$(ManagedPath)Assembly-CSharp.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="MCM">
+		  <HintPath>$(GAME_PATH)\..\..\workshop\content\2059170\3469678797\MCM.dll</HintPath>
+		  <Private>False</Private>
+		</Reference>
 		<Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>$(ManagedPath)UnityEngine.dll</HintPath>
@@ -95,5 +99,8 @@
 		<Reference Update="System">
 			<Private>False</Private>
 		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="lib\" />
 	</ItemGroup>
 </Project>

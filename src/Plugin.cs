@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FixGunpowderWeight
 {
@@ -25,8 +26,16 @@ namespace FixGunpowderWeight
         {
 
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
-
             Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
+
+            try
+            {
+                new McmConfiguration(Plugin.Config).Configure();
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogError(ex, "Error configuring MCM");
+            }
 
             new FixWeight().Update();
         }

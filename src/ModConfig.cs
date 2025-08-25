@@ -13,6 +13,12 @@ namespace FixGunpowderWeight
 {
     public class ModConfig
     {
+
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings()
+        {
+            Formatting = Formatting.Indented,
+        };
+
         /// <summary>
         /// If true, will set the powder weight to .01 from the current value of .1
         /// </summary>
@@ -28,10 +34,6 @@ namespace FixGunpowderWeight
         {
             ModConfig config;
 
-            JsonSerializerSettings serializerSettings = new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented,
-            };
 
             if (File.Exists(configPath))
             {
@@ -39,10 +41,10 @@ namespace FixGunpowderWeight
                 {
                     string sourceJson = File.ReadAllText(configPath);
 
-                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, serializerSettings);
+                    config = JsonConvert.DeserializeObject<ModConfig>(sourceJson, SerializerSettings);
 
                     //Add any new elements that have been added since the last mod version the user had.
-                    string upgradeConfig = JsonConvert.SerializeObject(config, serializerSettings);
+                    string upgradeConfig = JsonConvert.SerializeObject(config, SerializerSettings);
 
                     if (upgradeConfig != sourceJson)
                     {
@@ -56,7 +58,7 @@ namespace FixGunpowderWeight
                 catch (Exception ex)
                 {
                     Plugin.Logger.LogError("Error parsing configuration.  Ignoring config file and using defaults");
-                    Plugin.Logger.LogException(ex);
+                    Plugin.Logger.LogError(ex);
 
                     //Not overwriting in case the user just made a typo.
                     config = new ModConfig();
@@ -67,13 +69,20 @@ namespace FixGunpowderWeight
             {
                 config = new ModConfig();
                 
-                string json = JsonConvert.SerializeObject(config, serializerSettings);
+                string json = JsonConvert.SerializeObject(config, SerializerSettings);
                 File.WriteAllText(configPath, json);
 
                 return config;
             }
+        }
 
+        public void Save()
+        {
+            //Add any new elements that have been added since the last mod version the user had.
+            string configText = JsonConvert.SerializeObject(this, SerializerSettings);
 
+            //re-write
+            File.WriteAllText(Plugin.ConfigDirectories.ConfigPath, configText);
         }
     }
 }
