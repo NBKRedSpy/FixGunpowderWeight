@@ -23,9 +23,9 @@ namespace FixGunpowderWeight
         {
             ModConfigMenuAPI.RegisterModConfig("Fix Gunpowder Weight", new List<ConfigValue>()
             {
-                new ConfigValue("Fix Powder Weight", Config.FixPowderWeight,"General", true, 
-                    "Fixes the game's powder weight to be .01 instead of .10", "FixPowderWeight"),
-                new ConfigValue("FixDisassemblytoAssemblyCount", Config.FixDisassemblytoAssemblyCount,"General", false, 
+                new ConfigValue(nameof(ModConfig.FixPowderWeight), Config.FixPowderWeight,"General", true, 
+                    "Fixes the game's powder weight to be .01 instead of .10", "Fix Powder Weight"),
+                new ConfigValue(nameof(ModConfig.FixDisassemblytoAssemblyCount), Config.FixDisassemblytoAssemblyCount,"General", false, 
                     "Changes any disassembly outputs to not be more than what is required to make the same item.","Fix Disassembly to Assembly Count"),
                 new ConfigValue("__Notice", "The game must be restarted for any changes to take effect","Note"),
             }, OnSave);
@@ -37,8 +37,8 @@ namespace FixGunpowderWeight
 
             try
             {
-                Config.FixDisassemblytoAssemblyCount = (bool)currentConfig["FixDisassemblytoAssemblyCount"];
-                Config.FixPowderWeight = (bool)currentConfig["FixPowderWeight"];
+                Config.FixDisassemblytoAssemblyCount = (bool)currentConfig[nameof(ModConfig.FixDisassemblytoAssemblyCount)];
+                Config.FixPowderWeight = (bool)currentConfig[nameof(ModConfig.FixPowderWeight)];
 
                 Config.Save();
                 return true;

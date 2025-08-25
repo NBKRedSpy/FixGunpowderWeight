@@ -44,6 +44,11 @@ Icons from:
 [Question mark icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/question-mark)
 
 # Change Log 
+
+## 1.1.1
+
+* Fix for config label.
+
 ## 1.1.0
 
 * Supports Crynano's Mod Configuration Menu

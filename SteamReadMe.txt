@@ -71,6 +71,11 @@ Icons from:
 
 [h1]Change Log[/h1]
 
+[h2]1.1.1[/h2]
+[list]
+[*]Fix for config label.
+[/list]
+
 [h2]1.1.0[/h2]
 [list]
 [*]Supports Crynano's Mod Configuration Menu
