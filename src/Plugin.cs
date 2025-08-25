@@ -28,7 +28,15 @@ namespace FixGunpowderWeight
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
             Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
 
-            new McmTest().Test();
+            try
+            {
+                new McmTest(Plugin.Config).Test();
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogError("Error configuring MCM");
+                Plugin.Logger.LogException(ex);
+            }
 
             new FixWeight().Update();
         }
