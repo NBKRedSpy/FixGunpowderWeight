@@ -30,7 +30,7 @@ namespace FixGunpowderWeight
 
             try
             {
-                new McmConfiguration(Plugin.Config).Test();
+                new McmConfiguration(Plugin.Config).Configure();
             }
             catch (Exception ex)
             {

@@ -19,7 +19,7 @@ namespace FixGunpowderWeight
                 Config = config;
         }
 
-        public void Test()
+        public void Configure()
         {
             ModConfigMenuAPI.RegisterModConfig("Fix Gunpowder Weight", new List<ConfigValue>()
             {

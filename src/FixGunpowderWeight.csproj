@@ -26,7 +26,8 @@
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="MCM">
-		  <HintPath>D:\Games\Steam\steamapps\workshop\content\2059170\MCM_3469678797\MCM.dll</HintPath>
+		  <HintPath>$(GAME_PATH)\..\..\workshop\content\2059170\3469678797\MCM.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
@@ -98,5 +99,8 @@
 		<Reference Update="System">
 			<Private>False</Private>
 		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="lib\" />
 	</ItemGroup>
 </Project>

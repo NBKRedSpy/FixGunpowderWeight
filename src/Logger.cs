@@ -15,7 +15,6 @@ namespace FixGunpowderWeight
     /// </summary>
     public class Logger
     {
-
         /// <summary>
         /// The identifier to include at the start of every line.
         /// If not set, defaults to this assembly's name.
