@@ -23,12 +23,13 @@ namespace FixGunpowderWeight
         {
             ModConfigMenuAPI.RegisterModConfig("Fix Gunpowder Weight", new List<ConfigValue>()
             {
-                new ConfigValue("FixPowderWeight", Config.FixPowderWeight,"General", true, "Fixes the game's powder weight to be .01 instead of .10", "FixPowderWeight"),
-                new ConfigValue("FixDisassemblytoAssemblyCount", Config.FixDisassemblytoAssemblyCount,"General", false, "Changes any disassembly outputs to not be more than what is required to make the same item.","Fix Disassembly to Assembly Count"),
+                new ConfigValue("Fix Powder Weight", Config.FixPowderWeight,"General", true, 
+                    "Fixes the game's powder weight to be .01 instead of .10", "FixPowderWeight"),
+                new ConfigValue("FixDisassemblytoAssemblyCount", Config.FixDisassemblytoAssemblyCount,"General", false, 
+                    "Changes any disassembly outputs to not be more than what is required to make the same item.","Fix Disassembly to Assembly Count"),
                 new ConfigValue("__Notice", "The game must be restarted for any changes to take effect","Note"),
             }, OnSave);
         }
-
 
         private bool OnSave(Dictionary<string, object> currentConfig, out string feedbackMessage)
         {

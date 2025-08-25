@@ -35,6 +35,7 @@ This is not expected, but appreciated. Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/FixGunpowderWeight
 
 # Credits
+Special thanks to Crynano for his excellent Mod Configuration Menu.
 
 Icons from:
 
