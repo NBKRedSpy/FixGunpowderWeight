@@ -20,15 +20,28 @@ namespace FixGunpowderWeight
         };
 
         /// <summary>
+        /// If true, will log the items' production requirements that were changed.
+        /// </summary>
+        public bool DebugLog { get; set; } = false;
+
+        /// <summary>
         /// If true, will set the powder weight to .01 from the current value of .1
         /// </summary>
         public bool FixPowderWeight { get; set; } = true;
-        
+
+
         /// <summary>
-        /// If true, will change any disassembly outputs to not be more than what is required to make the same item.
+        /// If true, will change all disassembly outputs to not be more than what is required to make the same item.
+        /// This includes ammo.
         /// Ex: small_basic_ammo currently can be disassembled to a max of 2, but requires 1 to make.
         /// </summary>
-        public bool FixDisassemblytoAssemblyCount { get; set; } = false; 
+        public bool FixAllDisassemblyToAssemblyCount { get; set; } = false;
+
+        /// <summary>
+        /// If true, will only change any ammo disassembly outputs to not be more than what is required to make the same item.
+        /// Ex: small_basic_ammo currently can be disassembled to a max of 2, but requires 1 to make.
+        /// </summary>
+        public bool FixAmmoDisassemblyToAssemblyCount { get; set; } = false; 
 
         public static ModConfig LoadConfig(string configPath)
         {

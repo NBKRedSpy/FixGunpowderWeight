@@ -1,16 +1,22 @@
-# Quasimorph Fix Gunpowder Weight
+# Quasimorph Powder Weight and Disassembly Fix
+![thumbnail icon](media/thumbnail.png)
 
 Fixes a bug where gun powder is 10x the weight of ammo.  For example, 9mm ammo weighs 0.01 each, while powder extracted from that round weighs 0.10.
 
-Additionally, can optionally adjust ammo so that disassembling a round doesn't produce more components than it takes to make.  This is disabled by default.  Ex:  9mm ammo takes one powder to create, but can disassemble into as much as two powder.  This can be enabled with the config.
+Additionally, optionally can fix the issue where disassembling an item can create more resources than are required to manufacture the same item.  This is disabled by default and can be changed in the configuration.
+Ex:  In the base game, a 9mm round can be made with one powder, but disassembling a round can return up to two powders.  
 
 ## Disassembly Output Fix
-If the "fix disassembly outputs" is enabled, expect to get about half of the components that the non modded game returns.  As an example, since 9mm ammo can normally create up to two powder (0-2 random), adjusting that recipe to one (0-1 random) will reduce the output. For example, a stack of 9mm x 80 will generally return about 30-40 powder when modded, while the game's default will usually return about 80-100+.
+The differences in assembly resources needed vs resources created by disassembly may be a design choice by the developers.  Many items follow the 0-1 of X to make and produce 0-2 of X when disassembled.
+However, if you feel it is a bit of an exploit, these fixes will be for you.
 
-![thumbnail icon](media/thumbnail.png)
+If the "fix disassembly outputs" is enabled, expect to get about half of the components that the non modded game returns.  As an example, since 9mm ammo can normally create up to two powder (0-2 random), adjusting that recipe to one (0-1 random) will reduce the output. A stack of 9mm x 80 will generally return about 30-50 powder when modded, while the game's default will usually return about 70-100+.
+
+
+
 
 ## Mod Life
-It is unknown how quickly the developers will address the "bug" in the game.  However it may be fairly soon; therefore it is unknown how long this mod will be needed.  This mod will be removed when the bugs are addressed.
+The developers have mentioned that the powder weight issue will be addressed in a coming patch.  
 
 # Configuration
 
@@ -25,7 +31,9 @@ The configuration file will be created on the first game run and can be found at
 |Name|Default|Description|
 |--|--|--|
 |FixPowderWeight|true|Changes powder to 0.01 from the incorrect 0.10|
-|FixDisassemblytoAssemblyCount|false|If true, will change any disassembly outputs to not be more than what is required to make the same item.|
+|FixAmmoDisassemblyToAssemblyCount|false|If true, will only change any ammo disassembly outputs to not be more than what is required to make the same item.|
+|FixAllDisassemblyToAssemblyCount|false|If true, will change all disassembly outputs to not be more than what is required to make the same item.  This includes ammo.|
+|DebugLog|false|If true, will log the items' production requirements that were changed.|
 
 # Support My Work
 If you enjoy my mods and want to buy me a coffee, check out my [Ko-Fi](https://ko-fi.com/nbkredspy71915) page.  It really helps with motivation to continue to support mods.
@@ -44,6 +52,9 @@ Icons from:
 [Question mark icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/question-mark)
 
 # Change Log 
+## 1.2.0
+* Added option to fix all manufacture resource requirements vs disassemble resource outputs.
+* FixDisassemblyToAssemblyCount has been removed and replaced with Ammo and All options.
 
 ## 1.1.2
 * MCM is now optional

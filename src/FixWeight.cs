@@ -34,7 +34,7 @@ namespace FixGunpowderWeight
         /// <summary>
         /// Changes the powder weight from the incorrect .1 to .01.
         /// Changes all *_ammo disassembly outputs to be no more than the same 
-        /// resource that is requried to make the item.  Ex:  small_basic_ammo
+        /// resource that is required to make the item.  Ex:  small_basic_ammo
         /// requires one powder to manufacture, but by default disassembly can produce two powder.
         /// </summary>
         /// <exception cref="BaseDataIssueException"></exception>
@@ -43,6 +43,8 @@ namespace FixGunpowderWeight
 
             if(Plugin.Config.FixPowderWeight)
             {
+                if (Plugin.Config.DebugLog) { Plugin.Logger.Log("Fixing Powder Weight"); };
+
                 var powder = (Data.Items.GetRecord("powder") as CompositeItemRecord)?.PrimaryRecord as TrashRecord;
 
 
@@ -54,8 +56,20 @@ namespace FixGunpowderWeight
                 powder.Weight = 0.01f;
             }
 
-            if(Plugin.Config.FixDisassemblytoAssemblyCount)
+            if(Plugin.Config.FixAmmoDisassemblyToAssemblyCount || Plugin.Config.FixAllDisassemblyToAssemblyCount)
             {
+                Func<ItemProduceReceipt, bool> FilterItemTypes(bool fixAll)
+                {
+                    if (fixAll)
+                    {
+                        return (ItemProduceReceipt) => { return true; };
+                    }
+                    else
+                    {
+                        return (ItemProduceReceipt x) => x.OutputItem.EndsWith("_ammo");
+                    }
+                }
+
                 //Game "config" data to Data static object's stores.
                 //
                 //itemreceipts = assembly requirements = Data.ProduceReceipts
@@ -63,7 +77,8 @@ namespace FixGunpowderWeight
 
                 //Join an item's production requirements to the disassembly outputs for the same item.
                 //  Ex item A takes 1 powder to create.  Match to disassembly powder requriement.
-                var joined = Data.ProduceReceipts.Where(x => x.OutputItem.EndsWith("_ammo"))
+                var joined = Data.ProduceReceipts
+                    .Where(FilterItemTypes(Plugin.Config.FixAllDisassemblyToAssemblyCount))
                     .Join(Data.ItemTransformation._records.Values, outer => outer.OutputItem, inner => inner.Id,
                         (inner, outer) => new AssemblyJoin( inner.Id, inner.RequiredItems, outer.OutputItems, outer))
                     .ToList();
@@ -88,8 +103,11 @@ namespace FixGunpowderWeight
                         item.OutputItems.Add(new ItemQuantity(outputMismatch.DisasemblyOutputItem.ItemId, 
                             outputMismatch.InputCount));
 
-                        ////Debug
-                        //Debug.Log($"{item.ItemTransformationRecord.Id} {outputMismatch.ItemId} In: {outputMismatch.InputCount} Out: {outputMismatch.OutputCount}");
+                        if(Plugin.Config.DebugLog)
+                        {
+                            Plugin.Logger.Log($"{item.ItemTransformationRecord.Id} {outputMismatch.ItemId} Assemble {outputMismatch.InputCount} Disassemble: {outputMismatch.OutputCount}");
+
+                        }
                     }
                 }
             }
