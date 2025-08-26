@@ -7,7 +7,7 @@ Additionally, optionally can fix the issue where disassembling an item can creat
 Ex:  In the base game, a 9mm round can be made with one powder, but disassembling a round can return up to two powders.  
 
 ## Disassembly Output Fix
-The differences in assembly resources needed vs resources created by disassembly may be a design choice by the developers.  Many items follow the 0-1 of X to make and produce 0-2 of X when disassembled.
+The differences in assembly resources needed vs resources created by disassembly may be a design choice by the developers.  Many items follow the 1 of X to make and produce 0-2 of X when disassembled.
 However, if you feel it is a bit of an exploit, these fixes will be for you.
 
 If the "fix disassembly outputs" is enabled, expect to get about half of the components that the non modded game returns.  As an example, since 9mm ammo can normally create up to two powder (0-2 random), adjusting that recipe to one (0-1 random) will reduce the output. A stack of 9mm x 80 will generally return about 30-50 powder when modded, while the game's default will usually return about 70-100+.
