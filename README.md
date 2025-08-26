@@ -45,6 +45,9 @@ Icons from:
 
 # Change Log 
 
+## 1.1.2
+* MCM is now optional
+
 ## 1.1.1
 
 * Fix for config label.

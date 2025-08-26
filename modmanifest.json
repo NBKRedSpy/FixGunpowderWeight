@@ -3,7 +3,7 @@
   "Assemblies": [
     "FixGunpowderWeight.dll"
   ],
-  "Dependencies": ["Crynano_ModConfigMenu"],
+  "Dependencies": [],
   "SteamTags": [
     "Gameplay Tweaks",
     "0.9.1",

@@ -21,6 +21,8 @@ namespace FixGunpowderWeight
 
         public static Logger Logger = new Logger();
 
+        private static McmConfiguration McmConfiguration { get; set; }   
+
         [Hook(ModHookType.AfterConfigsLoaded)]
         public static void AfterConfig(IModContext context)
         {
@@ -28,14 +30,8 @@ namespace FixGunpowderWeight
             Directory.CreateDirectory(ConfigDirectories.ModPersistenceFolder);
             Config = ModConfig.LoadConfig(ConfigDirectories.ConfigPath);
 
-            try
-            {
-                new McmConfiguration(Plugin.Config).Configure();
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogError(ex, "Error configuring MCM");
-            }
+            McmConfiguration = new McmConfiguration(Config);
+            McmConfiguration.TryConfigure();
 
             new FixWeight().Update();
         }

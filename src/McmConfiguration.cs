@@ -2,6 +2,7 @@
 using ModConfigMenu.Objects;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,31 @@ namespace FixGunpowderWeight
         public McmConfiguration(ModConfig config)
         {
                 Config = config;
+        }
+
+
+        /// <summary>
+        /// Attempts to configure the MCM, but logs an error and continues if it fails.
+        /// </summary>
+        public bool TryConfigure()
+        {
+            try
+            {
+                Configure();
+                return true;
+            }
+            catch (FileNotFoundException)
+            {
+
+                Plugin.Logger.Log("Bypassing MCM. The 'Mod Configuration Menu' mod is not loaded. ");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogError(ex,"Bypassing MCM");
+            }
+
+            return false;
+
         }
 
         public void Configure()

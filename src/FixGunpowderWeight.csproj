@@ -26,8 +26,9 @@
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="MCM">
-		  <HintPath>$(GAME_PATH)\..\..\workshop\content\2059170\3469678797\MCM.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>./lib-stripped/MCM-stripped.dll</HintPath>
+			<HintPath>$(GAME_PATH)\..\..\workshop\content\2059170\3469678797\MCM.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
@@ -74,6 +75,7 @@
 		<ItemGroup>
 			<BuildSource Include="$(TargetDir)/*.*" />
 		</ItemGroup>
+		<Message Importance="high" Text="Workshop folder: $(WorkshopPath)"></Message>
 		<MakeDir Directories="$(WorkshopPath)" ContinueOnError="true" />
 		<Copy SourceFiles="@(BuildSource)" DestinationFolder="$(WorkshopPath)" />
 	</Target>
@@ -99,8 +101,5 @@
 		<Reference Update="System">
 			<Private>False</Private>
 		</Reference>
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="lib\" />
 	</ItemGroup>
 </Project>
